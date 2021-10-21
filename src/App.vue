@@ -17,11 +17,8 @@
       </ul>
     </header>
     <section>
-      <aside class="élément">
-    
-      
-        
-        <FormConnexion
+      <aside>
+       <FormConnexion
           V-for= "item in connexion"
           :checkForm="checkForm"
           :validEmail="validEmail"
@@ -34,7 +31,6 @@
   </div>
 </template>
 
-
 <script>
 import FormConnexion from "./components/FormConnexion.vue";
 
@@ -43,19 +39,18 @@ export default {
   components: {
     FormConnexion,
   },
-  data() {
-    
-    return
-      
-        [{
+data() {
+    return {
+      connexion: [
+        {
           errors: [],
           email: null,
           password: null,
-        }]
+        },
+      ],
+    };
   },
     
-  
-
   methods: {
     
     checkForm: function(e) {

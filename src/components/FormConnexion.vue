@@ -14,7 +14,7 @@ export default {
     novalidate="true"
     >
     <p v-if="errors.length">
-    <b>Please correct the following error(s):</b>
+    <b> Veuillez Corriger les erreurs suivantes:</b>
     <ul>
       <li> v-for="error in errors">{{ error }}</li>
     </ul>
