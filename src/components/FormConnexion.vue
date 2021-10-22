@@ -1,31 +1,21 @@
-<script>
-export default {
-  name: "FormConnexion",
-  props: ["checkForm","validEmail","email","password"]
-};
-</script>
 <template>
   <div class="form_group">
-    
-    <form id="app" 
-    @submit= "checkForm"
-    action="http://localhost:8080/ "
-    method="post"
-    novalidate="true"
-    >
-    <p v-if="errors.length">
+    <form id="app">
+<!-- 
+    <p v-if= "errors.length">
     <b> Veuillez Corriger les erreurs suivantes:</b>
     <ul>
-      <li> v-for="error in errors">{{ error }}</li>
+      <li :v-for= "error in errors"> {{ error }}</li>
     </ul>
-  </p>
+  </p> -->
       <div class="form_group">
         <label for="email">Email</label>
         <input
-          type="email"
           class="form-control"
+          type="email"
           id="email"
           name="email"
+          v-model= "email"
           placeholder="Adresse Email"
         />
       </div>
@@ -36,6 +26,7 @@ export default {
           class="form-control"
           id="password"
           name="password"
+          v-model = "password"
           placeholder="Mot de passe"
         />
       </div>
@@ -51,6 +42,12 @@ export default {
     </form>
   </div>
 </template>
+<script>
+export default {
+  name: "FormConnexion",
+  props: ["checkForm","validEmail","email","password"]
+};
+</script>
 <style lang="css">
 body {
   width: 100%;

@@ -18,29 +18,28 @@
     </header>
     <section>
       <aside>
-       <FormConnexion
-          V-for= "item in connexion"
-          :checkForm="checkForm"
-          :validEmail="validEmail"
-          :email="item.email"
-          :password="item.password"
-        />
-        </aside>
-      
+        <FormConnexion> </FormConnexion>
+       
+      </aside>
     </section>
+     <Footer class="footer">
+          <p>{{ copie }}</p>
+        </Footer>
   </div>
 </template>
 
 <script>
 import FormConnexion from "./components/FormConnexion.vue";
-
+import Footer from "./components/Footer.vue";
 export default {
   name: "App",
   components: {
     FormConnexion,
+    Footer,
   },
-data() {
+  data() {
     return {
+      copie: "réseau",
       connexion: [
         {
           errors: [],
@@ -50,9 +49,8 @@ data() {
       ],
     };
   },
-    
+
   methods: {
-    
     checkForm: function(e) {
       this.errors = [];
       if (!this.email) {
@@ -69,6 +67,14 @@ data() {
     validEmail: function(email) {
       var expReg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return expReg.test(email);
+    },
+  },
+
+  computed: {
+    copyright() {
+      const currentYear = new Date().getFullYear();
+
+      return `Copyright ${this.copie} ${currentYear}`;
     },
   },
 };
