@@ -2,7 +2,7 @@
 
 <template>
   <header id="app" class="app">
-    <img class="logo_header" src="" alt="Logo de l'entreprise Groupomania" />
+    <img class="logo_header" src= "public/images/icon-left-font.png" alt="Logo de l'entreprise Groupomania" />
 
     <h1>Réseau social des employé(e)s</h1>
 
