@@ -1,13 +1,17 @@
 <template>
   <div class="form_group">
-    <form id="app">
-<!-- 
-    <p v-if= "errors.length">
+    <form id="app"
+      @submit="checkForm"
+      action="https://localhost/3306"
+      method="post"
+      novalidate="true">
+     
+    <p v-if= "e">
     <b> Veuillez Corriger les erreurs suivantes:</b>
     <ul>
       <li :v-for= "error in errors"> {{ error }}</li>
     </ul>
-  </p> -->
+  </p>
       <div class="form_group">
         <label for="email">Email</label>
         <input
@@ -53,30 +57,6 @@ body {
   width: 100%;
   margin: auto;
 }
-/* HEADER */
-header {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-
-.logo_header {
-  width: 200px;
-  margin-top: -40px;
-}
-
-ul,
-a {
-  margin-right: 30px;
-  text-decoration: none;
-  list-style-type: none;
-  color: #fd2d01;
-}
-ul,
-li {
-  padding-top: 10px;
-}
-
 /* SECTION formulaire */
 .form_group {
   display: flex;

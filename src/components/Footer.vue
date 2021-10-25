@@ -6,7 +6,7 @@
   </footer>
 </template>
 
-<style lang="css">
+<style>
 footer {
   display: flex;
   justify-content: space-around;
