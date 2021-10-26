@@ -1,6 +1,6 @@
 <template>
   <div id="app">
- <Header></Header>
+    <Header/>
     <section>
       <aside>
         <FormConnexion
@@ -13,9 +13,7 @@
         />
       </aside>
     </section>
-    <Footer class="footer">
-      <p>{{ copie }}</p>
-    </Footer>
+    <Footer/>
   </div>
 </template>
 
@@ -28,11 +26,11 @@ export default {
   components: {
     FormConnexion,
     Footer,
-    Header
+    Header,
   },
   data() {
     return {
-      copie: "réseau",
+      
       connexion: [
         {
           errors: [],
@@ -51,7 +49,7 @@ export default {
       } else if (!this.validEmail(this.email)) {
         this.errors.push("Valid email required.");
       }
-      
+
       if (!this.errors.length) {
         return true;
       }
@@ -64,7 +62,5 @@ export default {
       return expReg.test(email);
     },
   },
-
-
 };
 </script>
