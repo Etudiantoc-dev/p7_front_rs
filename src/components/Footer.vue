@@ -1,6 +1,6 @@
 <template>
   <footer id="app" class="app">
-    <p class="footer">{{ copyright }}</p>
+    <p> {{ copyright}} </p>
     <p><a href="Aide">Aides</a></p>
     <p><a href="Contact">Contact</a></p>
   </footer>
@@ -21,10 +21,22 @@ footer {
 
 export default {
   Name: "Footer",
-  props: {
-    copyright: String,
+  data(){
+    return{
+      msg: "Groupomania",
+    }
+   
   },
- 
+  // props: {
+  //   copyright: String,
+  // },
+   computed: {
+    copyright() {
+      const currentYear = new Date().getFullYear();
+
+      return `Copyright ${this.msg} ${currentYear}`;
+    },
+  },
 
 };
 </script>

@@ -65,12 +65,6 @@ export default {
     },
   },
 
-  computed: {
-    copyright() {
-      const currentYear = new Date().getFullYear();
 
-      return `Copyright ${this.copie} ${currentYear}`;
-    },
-  },
 };
 </script>
