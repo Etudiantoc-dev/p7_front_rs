@@ -2,9 +2,9 @@
 <template>
 <div id="app">
   <div id="nav">
-    <router-link to="/"></router-link>
-   </div>
-    <router-view />
+    <router-link to="/"></router-link><router-link to="/Signup" tag ="button">inscription</router-link>
+   </div> <!-- Comment cibler et utiliser le lien "Inscription" déjà construit dans Header-->
+    <router-view  />
   </div>
 </template>
 <style>

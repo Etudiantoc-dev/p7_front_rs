@@ -6,7 +6,7 @@
         <FormConnexion
           v-for="item in connexion"
           :checkForm="checkForm"
-          :validEmail="validEmail"
+          
           :email="item.email"
           :key="item.name"
           :password="item.password"
@@ -34,33 +34,33 @@ export default {
       connexion: [
         {
           errors: [],
-          email: null,
-          password: null,
+          email: "",
+          password: "",
         },
       ],
     };
   },
 
-  methods: {
-    checkForm: function (e) {
-      this.errors = [];
-      if (!this.email) {
-        this.errors.push("Email required.");
-      } else if (!this.validEmail(this.email)) {
-        this.errors.push("Valid email required.");
-      }
+//   methods: {
+//     checkForm: function (e) {
+//       this.errors = [];
+//       if (!this.email) {
+//         this.errors.push("Email required.");
+//       } else if (!this.validEmail(this.email)) {
+//         this.errors.push("Valid email required.");
+//       }
 
-      if (!this.errors.length) {
-        return true;
-      }
-      e.preventDefault();
-    },
+//       if (!this.errors.length) {
+//         return true;
+//       }
+//       e.preventDefault();
+//     },
 
-    validEmail: function (email) {
-      var expReg =
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return expReg.test(email);
-    },
-  },
+//     validEmail: function (email) {
+//       var expReg =
+//         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+//       return expReg.test(email);
+//     },
+//   },
 };
 </script>

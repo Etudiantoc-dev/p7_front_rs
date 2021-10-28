@@ -44,12 +44,12 @@
         <p id="erreur" style="color: orangered; width: max-content"></p>
       </div>
     </form>
-  </div>
+  </div>    
 </template>
 <script>
 export default {
   name: "FormConnexion",
-  props: ["checkForm","validEmail","email","password"]
+  props: ["email","password"]
 };
 </script>
 <style lang="css">
