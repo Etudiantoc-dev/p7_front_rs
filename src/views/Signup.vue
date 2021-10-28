@@ -1,7 +1,11 @@
 
 <template>
   <div id="app">
-    <Header />
+     <Header
+    v-for='item in logo'
+    :image='item.image'
+    :key='item.name'
+    />
     <section>
       <aside>
         <h2>Inscription</h2>
@@ -72,6 +76,7 @@
 <script>
 import Footer from "../components/Footer.vue";
 import Header from "../components/Header.vue";
+import {mapState} from "vuex"
 
 export default {
   name: "Signup",
@@ -89,6 +94,11 @@ export default {
 
       
   }},
+   computed:{
+    ...mapState({
+      logo: "logo"
+    })
+  },
    methods: {
    signup(){
        const formulaireInscription = {

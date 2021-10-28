@@ -1,16 +1,20 @@
 <template>
   <div id="app">
-    <Header/>
+    <Header
+    v-for='item in logo'
+    :image='item.image'
+    :key='item.name'
+    />
     <section>
       <aside>
-        <FormConnexion
+        <FormConnexion/>
+        <!-- <FormConnexion
           v-for="item in connexion"
           :checkForm="checkForm"
-          
           :email="item.email"
           :key="item.name"
           :password="item.password"
-        />
+        /> -->
       </aside>
     </section>
     <Footer/>
@@ -21,12 +25,19 @@
 import FormConnexion from "../components/FormConnexion.vue";
 import Footer from "../components/Footer.vue";
 import Header from "../components/Header.vue";
+import {mapState} from "vuex";
+
 export default {
-  name: "App",
+  name: "Accueil",
   components: {
     FormConnexion,
     Footer,
     Header,
+  },
+  computed:{
+    ...mapState({
+      logo: "logo"
+    })
   },
   data() {
     return {

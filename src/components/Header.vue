@@ -2,7 +2,7 @@
 
 <template>
   <header id="app" class="app">
-    <img class="logo_header" src= "public/images/icon-left-font.png" alt="Logo de l'entreprise Groupomania" />
+    <img class="logo_header" :src="image.source" :alt="image.alt"/>
 
     <h1>Réseau social des employé(e)s</h1>
 
@@ -23,7 +23,12 @@
    <script>
 export default {
   name: "Header",
-}
+   props: {
+    image:{
+      type : Object,
+      require: true
+    } 
+}}
 </script>
 <style lang="css">
 body {
