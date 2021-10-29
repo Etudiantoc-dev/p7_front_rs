@@ -1,57 +1,58 @@
 <template>
   <div id="app">
-    <Header v-for="item in logo" :image="item.image" :key="item.name" />
+    <Header />
     <section>
       <aside>
         <h2>Inscription</h2>
         <form id="app">
           <div class="form_group">
-            <label for="nom">Nom</label>
+            <label :for="item.nom">Nom</label>
             <input
               class="form-control"
               type="text"
               id="nom"
               name="nom"
-              v-model="nom"
               placeholder="Nom"
+              kei="item.name"
             />
           </div>
           <div class="form_group">
-            <label for="prenom">Prénom</label>
+            <label for="item.prenom">Prénom</label>
             <input
+              v-model="formulaire"
               type="text"
               class="form-control"
               id="prenom"
               name="prenom"
-              v-model="prenom"
               placeholder="Prénom"
             />
           </div>
           <div class="form_group">
-            <label for="email">Email</label>
+            <label for="item.email">Email</label>
             <input
+              v-model="formulaire"
               type="email"
               class="form-control"
               id="email"
               name="email"
-              v-model="email"
               placeholder="Email"
             />
-            <small>{{ validEmail }}</small>
+            
           </div>
           <div class="form_group">
-            <label for="password">Mot de passe</label>
+            <label for="item.password">Mot de passe</label>
             <input
+              v-model="formulaire"
               type="text"
               class="form-control"
               id="password"
               name="password"
-              v-model="password"
               placeholder="Mot de passe"
             />
           </div>
           <div class="form_group">
             <input
+              v-model="formulaire"
               type="submit"
               value="Inscription"
               class="bouton_inscription"
@@ -67,26 +68,17 @@
 </template>
 <script>
 export default {
-    name: "FormInscription",
-     props: [{
-    nom: {
-      type: String,
-      required: true,
+  name: "FormInscription",
+
+  props: [
+    {
+      nom: String,
+      prenom: String,
+      email: String,
+      password: String,
     },
-    prenom: {
-      type: String,
-      required: true,
-    },
-    email: {
-      type: String,
-      required: true,
-    },
-    password: {
-      type: String,
-      required: true,
-    },
-  }],
-}
+  ],
+};
 </script>
  <style lang="css">
 body {

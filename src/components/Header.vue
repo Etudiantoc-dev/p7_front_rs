@@ -2,19 +2,25 @@
 
 <template>
   <header id="app" class="app">
-    <img class="logo_header" :src="image.source" :alt="image.alt"/>
+    <img class="logo_header" :src="image.source" :alt="image.alt" />
 
     <h1>Réseau social des employé(e)s</h1>
 
     <ul>
-      <li>
+      <li><router-link to="./Signup">
         <a href="inscription">Inscription</a>
+        </router-link>
       </li>
       <li>
-        <a href="connexion">Connexion</a>
+        <router-link to="/"> <a href="connexion">Connexion</a></router-link>
       </li>
       <li>
-        <a href="forum">Forum</a>
+        <router-link to="/Publication">
+          <a href="Publication">Publication</a>
+        </router-link>
+      </li>
+      <li>
+        <a href="Forum">Forum</a>
       </li>
     </ul>
   </header>
@@ -23,12 +29,13 @@
    <script>
 export default {
   name: "Header",
-   props: {
-    image:{
-      type : Object,
-      require: true
-    } 
-}}
+  props: {
+    image: {
+      type: Object,
+      require: true,
+    },
+  },
+};
 </script>
 <style lang="css">
 body {

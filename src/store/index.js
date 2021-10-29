@@ -1,3 +1,4 @@
+
 import Vue from 'vue'
 import Vuex from 'vuex'
 
@@ -11,12 +12,12 @@ export default new Vuex.Store({
         alt: "Logo"
 
       },
-      formulaire: [{
-        prenom: "",
-        nom: "",
-        email: "",
-        password: "",
-      }]
+      formulaire: {
+        prenom:  '',
+        nom:  '',
+        email:  '',
+        password: '',
+      }
     }],
 
     mutations: {

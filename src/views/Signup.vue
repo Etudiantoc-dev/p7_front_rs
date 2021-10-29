@@ -1,24 +1,27 @@
 <template>
   <div id="app">
     <Header v-for="item in logo" :image="item.image" :key="item.name" />
-    <FormInscription
+    <section>
+      <aside>
+        
+        <FormInscription
           v-for="item in formulaire"
+          :nom="item.nom"
+          :prenom="item.prenom"
+          :email="item.email"
+          :password="item.password"
           :key="item.name"
-          :nom='nom'
-          :prenom='prenom'
-          :email='email'
-          :password='password'
-
-          />
-    <Footer/>
-    </div>
-    </template>
+        />
+      </aside>
+    </section>
+    <Footer />
+  </div>
+</template>
       
     
 <script>
-
 import Header from "../components/Header.vue";
-import FormInscription from "../components/FormInscription.vue"
+import FormInscription from "../components/FormInscription.vue";
 import Footer from "../components/Footer.vue";
 import { mapState } from "vuex";
 
@@ -27,14 +30,13 @@ export default {
   components: {
     Header,
     Footer,
-    FormInscription
+    FormInscription,
   },
- 
+
   computed: {
     ...mapState({
       logo: "logo",
-      formulaire:"formulaire"
-
+      formulaire: "formulaire",
     }),
   },
   methods: {
