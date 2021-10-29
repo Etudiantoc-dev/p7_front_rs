@@ -1,17 +1,7 @@
 <template>
   <div class="form_group">
-    <form id="app"
-      @submit="checkForm"
-      action="https://localhost/3306"
-      method="post"
-      novalidate="true">
-     
-    <p v-if= "e">
-    <b> Veuillez Corriger les erreurs suivantes:</b>
-    <ul>
-      <li :v-for= "error in errors"> {{ error }}</li>
-    </ul>
-  </p>
+    <form id="app">
+   
       <div class="form_group">
         <label for="email">Email</label>
         <input
