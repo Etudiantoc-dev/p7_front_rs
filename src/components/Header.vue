@@ -15,12 +15,9 @@
         <router-link to="/"> <a href="connexion">Connexion</a></router-link>
       </li>
       <li>
-        <router-link to="/Publication">
-          <a href="Publication">Publication</a>
+        <router-link to="/PublicationForum">
+          <a href="Forum">Forum</a>
         </router-link>
-      </li>
-      <li>
-        <a href="Forum">Forum</a>
       </li>
     </ul>
   </header>

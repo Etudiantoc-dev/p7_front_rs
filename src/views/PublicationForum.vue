@@ -5,7 +5,7 @@ import FormPublication from "../components/FormPublication.vue"
 import { mapState } from "vuex";
 
 export default {
-  name: "Publication",
+  name: "PublicationForum",
   components: {
     Footer,
     Header,

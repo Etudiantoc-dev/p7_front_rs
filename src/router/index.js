@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Accueil from '../views/Accueil.vue'
 import Signup from '../views/Signup.vue'
 import VueRouter from 'vue-router'
-import Publication from '../views/Publication.vue'
+import Publication from '../views/PublicationForum.vue'
 
 Vue.use(VueRouter)
 
@@ -20,8 +20,8 @@ export default new Router({
       component: Signup
     },
     {
-      path: '/Publication',
-      name:'publication',
+      path: '/PublicationForum',
+      name:'forum',
       component: Publication
     }
 

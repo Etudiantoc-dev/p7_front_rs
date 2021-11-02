@@ -6,8 +6,9 @@
         <h2>Inscription</h2>
         <form id="app">
           <div class="form_group">
-            <label :for="item.nom">Nom</label>
+            <label for="item.nom">Nom</label>
             <input
+              v-model="nom"
               class="form-control"
               type="text"
               id="nom"
@@ -19,7 +20,7 @@
           <div class="form_group">
             <label for="item.prenom">Prénom</label>
             <input
-              v-model="formulaire"
+              v-model="prenom"
               type="text"
               class="form-control"
               id="prenom"
@@ -30,19 +31,18 @@
           <div class="form_group">
             <label for="item.email">Email</label>
             <input
-              v-model="formulaire"
+              v-model="email"
               type="email"
               class="form-control"
               id="email"
               name="email"
               placeholder="Email"
             />
-            
           </div>
           <div class="form_group">
             <label for="item.password">Mot de passe</label>
             <input
-              v-model="formulaire"
+              v-model="password"
               type="text"
               class="form-control"
               id="password"
@@ -52,7 +52,6 @@
           </div>
           <div class="form_group">
             <input
-              v-model="formulaire"
               type="submit"
               value="Inscription"
               class="bouton_inscription"
@@ -80,7 +79,7 @@ export default {
   ],
 };
 </script>
- <style lang="css">
+<style lang="css">
 body {
   width: 100%;
   margin: auto;
