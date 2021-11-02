@@ -1,7 +1,7 @@
    
 
 <template>
-  <header id="app" class="app">
+  <header>
     <img class="logo_header" :src="image.source" :alt="image.alt" />
 
     <h1>Réseau social des employé(e)s</h1>

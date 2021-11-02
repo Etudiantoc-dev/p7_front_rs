@@ -1,21 +1,13 @@
 <script>
-import Footer from "../components/Footer.vue";
-import Header from "../components/Header.vue";
 import FormPublication from "../components/FormPublication.vue"
-import { mapState } from "vuex";
+
 
 export default {
   name: "PublicationForum",
   components: {
-    Footer,
-    Header,
     FormPublication
   },
-  computed: {
-    ...mapState({
-      logo: "logo",
-    }),
-  },
+
   methods: {
     signup() {
       const formulairePublication = {
@@ -37,14 +29,10 @@ export default {
   },
 };
 </script>
-<template> <div id="App">
-    <Header
-    v-for='item in logo'
-    :image='item.image'
-    :key='item.name'
-    />
+<template> 
+ 
   <FormPublication/>
-  <Footer/>
+ 
 
-  </div>
+  
 </template>

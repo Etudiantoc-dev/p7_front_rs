@@ -1,38 +1,29 @@
 <template>
   <div id="app">
-    <Header
-    v-for='item in logo'
-    :image='item.image'
-    :key='item.name'
-    />
-    <section>
-      <aside>
+
+    
+     
+        <!-- <CreerSinscrire/> -->
         <FormConnexion/>
-        <!-- <FormConnexion
-          v-for="item in connexion"
-          :checkForm="checkForm"
-          :email="item.email"
-          :key="item.name"
-          :password="item.password"
-        /> -->
-      </aside>
-    </section>
+      
+    
     <Footer/>
   </div>
 </template>
 
 <script>
 import FormConnexion from "../components/FormConnexion.vue";
-import Footer from "../components/Footer.vue";
-import Header from "../components/Header.vue";
+// import CreerSinscrire from '../components/CreerSinscrire.vue'
+
+
 import {mapState} from "vuex";
 
 export default {
   name: "Accueil",
   components: {
     FormConnexion,
-    Footer,
-    Header,
+  
+    // CreerSinscrire
   },
   computed:{
     ...mapState({

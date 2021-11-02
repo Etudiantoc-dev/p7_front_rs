@@ -1,82 +1,90 @@
 <template>
-  <div id="app">
-    <Header />
-    <section>
-      <aside>
-        <h2>Inscription</h2>
-        <form id="app">
-          <div class="form_group">
-            <label for="item.nom">Nom</label>
-            <input
-              v-model="nom"
-              class="form-control"
-              type="text"
-              id="nom"
-              name="nom"
-              placeholder="Nom"
-              kei="item.name"
-            />
-          </div>
-          <div class="form_group">
-            <label for="item.prenom">Prénom</label>
-            <input
-              v-model="prenom"
-              type="text"
-              class="form-control"
-              id="prenom"
-              name="prenom"
-              placeholder="Prénom"
-            />
-          </div>
-          <div class="form_group">
-            <label for="item.email">Email</label>
-            <input
-              v-model="email"
-              type="email"
-              class="form-control"
-              id="email"
-              name="email"
-              placeholder="Email"
-            />
-          </div>
-          <div class="form_group">
-            <label for="item.password">Mot de passe</label>
-            <input
-              v-model="password"
-              type="text"
-              class="form-control"
-              id="password"
-              name="password"
-              placeholder="Mot de passe"
-            />
-          </div>
-          <div class="form_group">
-            <input
-              type="submit"
-              value="Inscription"
-              class="bouton_inscription"
-              id="bouton"
-            />
-            <p id="erreur" style="color: orangered; width: max-content"></p>
-          </div>
-        </form>
-      </aside>
-    </section>
-    <Footer />
-  </div>
+  <section>
+    <form>
+      <h2>Inscription</h2>
+      <div class="form_group">
+        <label for="item.nom">Nom</label>
+        <input
+          v-model="nom"
+          class="form-control"
+          type="text"
+          id="nom"
+          name="nom"
+          placeholder="Nom"
+          kei="item.name"
+        />
+      </div>
+      <div class="form_group">
+        <label for="item.prenom">Prénom</label>
+        <input
+          v-model="prenom"
+          type="text"
+          class="form-control"
+          id="prenom"
+          name="prenom"
+          placeholder="Prénom"
+        />
+      </div>
+      <div class="form_group">
+        <label for="item.email">Email</label>
+        <input
+          v-model="email"
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="Email"
+        />
+      </div>
+      <div class="form_group">
+        <label for="item.password">Mot de passe</label>
+        <input
+          v-model="password"
+          type="text"
+          class="form-control"
+          id="password"
+          name="password"
+          placeholder="Mot de passe"
+        />
+      </div>
+      <div class="form_group" >
+        <input
+          @click="createAccount()"
+          type="submit"
+          value="Inscription"
+          class="bouton_inscription"
+          id="bouton"
+        />
+        <p id="erreur" style="color: orangered; width: max-content"></p>
+      </div>
+    </form>
+  </section>
 </template>
 <script>
 export default {
   name: "FormInscription",
-
-  props: [
-    {
-      nom: String,
-      prenom: String,
-      email: String,
-      password: String,
+  data: function(){
+    return {
+      nom: "",
+      prenom: "",
+      email:"",
+      password:""
+    }
+  },
+  methods: {
+      createAccount: function () {
+      
+      console.log(this.nom, this.prenom, this.email, this.password);
     },
-  ],
+  },
+
+  // props: {
+  //   formule:{
+  //   nom: String,
+  //   prenom: String,
+  //   email: String,
+  //   password: String,
+  // }},
 };
 </script>
 <style lang="css">

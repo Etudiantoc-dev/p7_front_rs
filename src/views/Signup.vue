@@ -1,45 +1,43 @@
 <template>
-  <div id="app">
-    <Header v-for="item in logo" :image="item.image" :key="item.name" />
-    <section>
-      <aside>
-        
-        <FormInscription
-          v-for="item in formulaire"
-          :nom="item.nom"
-          :prenom="item.prenom"
-          :email="item.email"
-          :password="item.password"
-          :key="item.name"
+<!--   
+      <FormInscription 
+      -
+       
+       
+       
+       /> -->
+      <FormInscription
+          
+          :nom="formulaire.nom"
+          :prenom="formulaire.prenom"
+          :email="formulaire.email"
+          :password="formulaire.password"
+          :key="formulaire.name"
+         
         />
-      </aside>
-    </section>
-    <Footer />
-  </div>
+  
 </template>
-      
-    
+
 <script>
-import Header from "../components/Header.vue";
 import FormInscription from "../components/FormInscription.vue";
-import Footer from "../components/Footer.vue";
 import { mapState } from "vuex";
 
 export default {
   name: "Signup",
   components: {
-    Header,
-    Footer,
     FormInscription,
   },
 
   computed: {
     ...mapState({
-      logo: "logo",
       formulaire: "formulaire",
     }),
   },
-  methods: {
+  // methods: {
+  //   ...mapActions({
+  //     createAccount: "createAccount",
+  //   }),
+
     signup() {
       const formulaireInscription = {
         nom: this.nom,
@@ -59,11 +57,5 @@ export default {
           .then((res) => console.log(res));
       }
     },
-  },
-};
+  }
 </script>
-  
-
-
-
-   

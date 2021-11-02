@@ -6,8 +6,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    logo: [{
-      image: {
+    logo: {
+      
         source: "../images/icon-left-font.png",
         alt: "Logo"
 
@@ -17,14 +17,14 @@ export default new Vuex.Store({
         nom:  '',
         email:  '',
         password: '',
-      }
-    }],
+      },
+    
 
     mutations: {
     },
-    actions: {
-    },
+    actions: {},
     modules: {
     }
   }
 })
+

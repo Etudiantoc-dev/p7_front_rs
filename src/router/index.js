@@ -4,11 +4,17 @@ import Accueil from '../views/Accueil.vue'
 import Signup from '../views/Signup.vue'
 import VueRouter from 'vue-router'
 import Publication from '../views/PublicationForum.vue'
+import CreerSinscrire from '../components/CreerSinscrire.vue'
 
 Vue.use(VueRouter)
 
 export default new Router({
   routes : [
+    {
+      path:'/CreerSinscrire',
+      name:'creerSinscrire',
+      component : CreerSinscrire
+    },
     {
       path: '/',
       name: 'accueil',

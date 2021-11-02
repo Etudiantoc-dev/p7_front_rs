@@ -1,54 +1,43 @@
 <template>
-  <div id="app" class="app">
-    <Header v-for="item in logo" :image="item.image" :key="item.name" />
-    <section>
-      <aside>
-        <h2>Publication</h2>
-        <form id="App">
-          <div class="form_group">
-            <label for="prenom">Prénom</label>
-            <input
-              type="text"
-              class="form-control"
-              id="prenom"
-              name="prenom"
-              v-model="prenom"
-              placeholder="Prénom"
-            />
-          </div>
-          <div class="form_group">
-            <label for="commentaire">Commentaire</label>
-            <input
-              type="text"
-              class="form-control"
-              id="commentaire"
-              name="commentaire"
-              v-model="commentaire"
-              placeholder="Commentaire"
-            />
-          </div>
-          <div class="form-group">
-            <label for="multimedia">Multimédia</label>
-            <input
-              type="file"
-              value="Télécharger"
-              class="upload_file"
-              id="bouton"
-            />
-          </div>
-          <div class="form_group">
-            <input
-              type="submit"
-              value="Publier"
-              class="bouton_inscription"
-              id="bouton"
-            />
-          </div>
-        </form>
-      </aside>
-    </section>
-    <Footer />
-  </div>
+  <section>
+    <form>
+    <h2>Publication</h2>
+    <div class="form_group">
+      <label for="prenom">Prénom</label>
+      <input
+        type="text"
+        class="form-control"
+        id="prenom"
+        name="prenom"
+        v-model="prenom"
+        placeholder="Prénom"
+      />
+    </div>
+    <div class="form_group">
+      <label for="commentaire">Commentaire</label>
+      <input
+        type="text"
+        class="form-control"
+        id="commentaire"
+        name="commentaire"
+        v-model="commentaire"
+        placeholder="Commentaire"
+      />
+    </div>
+    <div class="form-group">
+      <label for="multimedia">Multimédia</label>
+      <input type="file" value="Télécharger" class="upload_file" id="bouton" />
+    </div>
+    <div class="form_group">
+      <input
+        type="submit"
+        value="Publier"
+        class="bouton_inscription"
+        id="bouton"
+      />
+    </div>
+  </form>
+  </section>
 </template>
 <style lang="css">
 .commentaires {
