@@ -4,7 +4,33 @@ export default {
   data: function() {
     return {
       mode: "login",
+      email: "",
+      prenom: "",
+      nom: "",
+      password: "",
     };
+  },
+  computed: {
+    validatedFields: function() {
+      if (this.mode == "create") {
+        if (
+          this.nom != "" &&
+          this.prenom != "" &&
+          this.email != "" &&
+          this.password != ""
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        if (this.email != "" && this.password != "") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
   },
   methods: {
     switchToCreateAccount: function() {
@@ -12,6 +38,9 @@ export default {
     },
     switchToLogin: function() {
       this.mode = "login";
+    },
+    createAccount: function() {
+      console.log(this.nom, this.prenom, this.email, this.password);
     },
   },
 };
@@ -32,9 +61,9 @@ export default {
             <button @click="switchToCreateAccount()">Créer un compte</button>
           </p>
         </div>
-         <div class="connex" v-else>
+        <div class="connex" v-else>
           <p>
-            Tu as déjà un compte 
+            Tu as déjà un compte
             <button @click="switchToLogin()">Se connecter</button>
           </p>
         </div>
@@ -43,6 +72,7 @@ export default {
           <div class="form_group" v-if="mode == 'create'">
             <label for="item.nom">Nom</label>
             <input
+              v-model="nom"
               class="form-control"
               type="text"
               id="nom"
@@ -54,6 +84,7 @@ export default {
           <div class="form_group" v-if="mode == 'create'">
             <label for="item.prenom">Prénom</label>
             <input
+              v-model="prenom"
               type="text"
               class="form-control"
               id="prenom"
@@ -64,6 +95,7 @@ export default {
           <div class="form_group">
             <label for="item.email">Email</label>
             <input
+              v-model="email"
               type="email"
               class="form-control"
               id="email"
@@ -74,6 +106,7 @@ export default {
           <div class="form_group">
             <label for="item.password">Mot de passe</label>
             <input
+              v-model="password"
               type="text"
               class="form-control"
               id="password"
@@ -81,8 +114,13 @@ export default {
               placeholder="Mot de passe"
             />
           </div>
-          <div class="form_group" v-if="mode == 'create'">
+          <div
+            class="form_group" @click="createAccount()" 
+            :class="{ button_disabled: !validatedFields }"
+            v-if="mode == 'create'"
+          >
             <input
+              
               type="submit"
               value="Inscription"
               class="bouton_inscription"
@@ -90,7 +128,11 @@ export default {
             />
             <p id="erreur" style="color: orangered; width: max-content"></p>
           </div>
-             <div class="form_group" v-if="mode == 'login'">
+          <div
+            class="form_group"
+            :class="{ button_disabled: !validatedFields }"
+            v-else
+          >
             <input
               type="submit"
               value="Connection"
@@ -131,9 +173,15 @@ label {
   display: flex;
   justify-content: center;
 }
-.bouton_inscription, .bouton_connection{
+
+.bouton_inscription,
+.bouton_connection {
   color: #fd2d01;
   margin-top: 15px;
+}
+
+.button_disabled {
+  pointer-events: none;
 }
 /* Responsive */
 
