@@ -1,26 +1,23 @@
 <template>
-<!--   
+  <!--   
       <FormInscription 
       -
        
        
        
        /> -->
-      <FormInscription
-          
-          :nom="formulaire.nom"
-          :prenom="formulaire.prenom"
-          :email="formulaire.email"
-          :password="formulaire.password"
-          :key="formulaire.name"
-         
-        />
-  
+  <FormInscription
+    :nom="formulaire.nom"
+    :prenom="formulaire.prenom"
+    :email="formulaire.email"
+    :password="formulaire.password"
+    :key="formulaire.name"
+  />
 </template>
 
 <script>
 import FormInscription from "../components/FormInscription.vue";
-import { mapState } from "vuex";
+import { mapState,mapGetters } from "vuex";
 
 export default {
   name: "Signup",
@@ -32,30 +29,30 @@ export default {
     ...mapState({
       formulaire: "formulaire",
     }),
+    ...mapGetters({
+      createAccount: "createAccount",
+    }),
   },
   // methods: {
-  //   ...mapActions({
-  //     createAccount: "createAccount",
-  //   }),
 
-    signup() {
-      const formulaireInscription = {
-        nom: this.nom,
-        prenom: this.prenom,
-        email: this.email,
-        password: this.password,
+  signup() {
+    const formulaireInscription = {
+      nom: this.nom,
+      prenom: this.prenom,
+      email: this.email,
+      password: this.password,
+    };
+    {
+      const user = {
+        method: "POST",
+        body: JSON.stringify(formulaireInscription),
+        headers: { "Content-type": "application/json; charset=UTF-8" },
       };
-      {
-        const user = {
-          method: "POST",
-          body: JSON.stringify(formulaireInscription),
-          headers: { "Content-type": "application/json; charset=UTF-8" },
-        };
 
-        fetch(`http://localhost:3000/api/auth/signup`, user)
-          .then((res) => res.json())
-          .then((res) => console.log(res));
-      }
-    },
-  }
+      fetch(`http://localhost:3000/api/auth/signup`, user)
+        .then((res) => res.json())
+        .then((res) => console.log(res));
+    }
+  },
+};
 </script>
