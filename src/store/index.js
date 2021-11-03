@@ -30,10 +30,10 @@ export default new Vuex.Store({
     mutations: {
     },
     actions: {
-      createAccount: ({ commit }, utilisateur) =>{
-        commit;
-        console.log(utilisateur)
-      }
+      // createAccount: ({ commit }, utilisateur) =>{
+      //   commit;
+      //   console.log(utilisateur)
+      // }
     },
     modules: {
     }

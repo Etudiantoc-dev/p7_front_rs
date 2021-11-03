@@ -4,6 +4,7 @@ export default {
   data: function() {
     return {
       mode: "login",
+      errors: [],
       email: "",
       prenom: "",
       nom: "",
@@ -31,8 +32,31 @@ export default {
         }
       }
     },
+
+  
   },
+
   methods: {
+     checkForm: function (e) {
+       this.errors = [];
+    if (!this.email) {
+        this.errors.push('Email required.');
+      } else if (!this.validEmail(this.email)) {
+        this.errors.push('Valid email required.');
+      }
+
+      if (!this.errors.length) {
+        return true;
+      }
+
+      e.preventDefault();
+    },
+    validEmail: function (email) {
+      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    },
+  
+    
     switchToCreateAccount: function() {
       this.mode = "create";
     },
@@ -46,7 +70,7 @@ export default {
       email: this.email,
       password: this.password,
     };
-    
+
       const user = {
         method: "POST",
         body: JSON.stringify(formulaireInscription),
@@ -56,9 +80,26 @@ export default {
       fetch(`http://localhost:3000/api/auth/signup`, user)
         .then((res) => res.json())
         .then((res) => console.log(res));
+
+    },
+    login(){
+         const connection = {
+      email: this.email,
+      password: this.password,
+    };
+
+      const user = {
+        method: "POST",
+        body: JSON.stringify(connection),
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+      };
+
+      fetch(`http://localhost:3000/api/auth/signup`, user)
+        .then((res) => res.json())
+        .then((res) => console.log(res));
+
     }
-  },
-};
+  }}
 
 </script>
 <template>
@@ -79,12 +120,14 @@ export default {
         </div>
         <div class="connex" v-else>
           <p>
-            Tu as déjà un compte
-            <button @click="switchToLogin()">Se connecter</button>
+            Tu as déjà un compte ?
+            <button class="ligne" @click="switchToLogin()">Se connecter</button>
           </p>
         </div>
 
-        <form>
+        <form @submit="checkForm" action="/something" method="post" novalidate="true">
+  
+
           <div class="form_group" v-if="mode == 'create'">
             <label for="item.nom">Nom</label>
             <input
@@ -108,8 +151,9 @@ export default {
               placeholder="Prénom"
             />
           </div>
-          <div class="form_group">
-            <label for="item.email">Email</label>
+          <div
+            class="form_group">
+            <label for="item.prenom">Email</label>
             <input
               v-model="email"
               type="email"
@@ -117,7 +161,14 @@ export default {
               id="email"
               name="email"
               placeholder="Email"
-            />
+            />  <small v-if="errors.length">
+    <b>Veuillez entrer une adresse valide</b>
+    <ul>
+      <li class="style" v-bind="error in errors">{{ error }}</li>
+    </ul>
+  </small>
+
+
           </div>
           <div class="form_group">
             <label for="item.password">Mot de passe</label>
@@ -131,12 +182,12 @@ export default {
             />
           </div>
           <div
-            class="form_group" @click="createAccount()" 
+            class="form_group"
+            @click="createAccount()"
             :class="{ button_disabled: !validatedFields }"
             v-if="mode == 'create'"
           >
             <input
-              
               type="submit"
               value="Inscription"
               class="bouton_inscription"
@@ -146,6 +197,7 @@ export default {
           </div>
           <div
             class="form_group"
+            @click="login()"
             :class="{ button_disabled: !validatedFields }"
             v-else
           >
@@ -176,6 +228,9 @@ body {
   width: 25%;
   text-align: center;
 }
+.ligne {
+  margin-top: 5px;
+}
 .form_group {
   display: flex;
   flex-direction: column;
@@ -198,6 +253,15 @@ label {
 
 .button_disabled {
   pointer-events: none;
+}
+.validEmail {
+  background: #fd2d01;
+}
+.style{
+  list-style: none;
+}
+b{
+  color: #fd2d01;
 }
 /* Responsive */
 
