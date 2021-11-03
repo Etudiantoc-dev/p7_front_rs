@@ -1,5 +1,5 @@
 <template>
-  <footer id="app" class="app">
+  <footer>
     <p>{{ copyright }}</p>
     <p><a href="Aide">Aides</a></p>
     <p><a href="Contact">Contact</a></p>
@@ -17,6 +17,7 @@ footer {
 </style>
 
 <script>
+
 export default {
   Name: "Footer",
   data() {
@@ -25,12 +26,12 @@ export default {
     };
   },
 
-  computed: {
-    copyright() {
-      const currentYear = new Date().getFullYear();
+  // computed: {
+  //   copyright() {
+  //     const currentYear = new Date().getFullYear();
 
-      return `Copyright ${this.msg} ${currentYear}`;
-    },
-  },
+  //     return `Copyright ${this.msg} ${currentYear}`;
+  //   },
+  // },
 };
 </script>

@@ -19,7 +19,13 @@ export default new Vuex.Store({
         password: '',
       },
     
+      getters:{
+        createAccount(state) {
+          return`${state.formulaire}`
+          
+        },
 
+      },
     mutations: {
     },
     actions: {},

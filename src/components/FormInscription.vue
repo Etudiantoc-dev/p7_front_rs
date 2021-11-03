@@ -71,12 +71,7 @@ export default {
       password:""
     }
   },
-  methods: {
-      createAccount: function () {
-      
-      console.log(this.nom, this.prenom, this.email, this.password);
-    },
-  },
+  
 
   // props: {
   //   formule:{
