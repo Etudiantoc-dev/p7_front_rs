@@ -1,31 +1,22 @@
 <script>
-import Footer from "./Footer.vue";
-import { mapState } from "vuex";
-
 export default {
   name: "CreerSinscrire",
-  components: {
-    Footer,
-  },
-
-  computed: {
-    ...mapState({
-      logo: "logo",
-    }),
-  },
-};
+ };
 </script>
-
 <template>
   <div id="app">
     <Header v-for="item in logo" :image="item.image" :key="item.name" />
     <section>
       <aside>
-        <h2>Connexion</h2>
-        <p>
-          Tu n'as pas encore de compte ?
-          <span><a href="Créer un compte">Créer un compte</a> </span>
-        </p>
+        <div class="connex">
+          <h2>Connexion</h2>
+        </div>
+        <div class="connex">
+          <p>
+            Tu n'as pas encore de compte ?
+            <span><a href="Créer un compte">Créer un compte</a> </span>
+          </p>
+        </div>
 
         <form id="app">
           <div class="form_group">
@@ -90,6 +81,13 @@ body {
   margin: auto;
 }
 /* SECTION formulaire */
+.connex {
+  margin: auto;
+  flex-direction: column;
+  display: flex;
+  width: 25%;
+  text-align: center;
+}
 .form_group {
   display: flex;
   flex-direction: column;
