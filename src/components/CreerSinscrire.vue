@@ -1,25 +1,46 @@
 <script>
 export default {
   name: "CreerSinscrire",
- };
+  data: function() {
+    return {
+      mode: "login",
+    };
+  },
+  methods: {
+    switchToCreateAccount: function() {
+      this.mode = "create";
+    },
+    switchToLogin: function() {
+      this.mode = "login";
+    },
+  },
+};
 </script>
 <template>
   <div id="app">
-    <Header v-for="item in logo" :image="item.image" :key="item.name" />
     <section>
       <aside>
-        <div class="connex">
+        <div class="connex" v-if="mode == 'login'">
           <h2>Connexion</h2>
         </div>
-        <div class="connex">
+        <div class="connex" v-else>
+          <h2>Inscription</h2>
+        </div>
+        <div class="connex" v-if="mode == 'login'">
           <p>
             Tu n'as pas encore de compte ?
-            <span><a href="Créer un compte">Créer un compte</a> </span>
+            <button @click="switchToCreateAccount()">Créer un compte</button>
+          </p>
+        </div>
+         <div class="connex" v-else>
+          <p>
+            Tu as déjà un compte 
+            <button @click="switchToLogin()">Se connecter</button>
           </p>
         </div>
 
-        <form id="app">
-          <div class="form_group">
+        <form>
+          <div class="form_group" v-if="mode == 'create'">
             <label for="item.nom">Nom</label>
             <input
               class="form-control"
@@ -30,7 +51,7 @@ export default {
               kei="item.name"
             />
           </div>
-          <div class="form_group">
+          <div class="form_group" v-if="mode == 'create'">
             <label for="item.prenom">Prénom</label>
             <input
               type="text"
@@ -60,11 +81,20 @@ export default {
               placeholder="Mot de passe"
             />
           </div>
-          <div class="form_group">
+          <div class="form_group" v-if="mode == 'create'">
             <input
               type="submit"
               value="Inscription"
               class="bouton_inscription"
+              id="bouton"
+            />
+            <p id="erreur" style="color: orangered; width: max-content"></p>
+          </div>
+             <div class="form_group" v-if="mode == 'login'">
+            <input
+              type="submit"
+              value="Connection"
+              class="bouton_connection"
               id="bouton"
             />
             <p id="erreur" style="color: orangered; width: max-content"></p>
@@ -101,7 +131,7 @@ label {
   display: flex;
   justify-content: center;
 }
-.bouton_inscription {
+.bouton_inscription, .bouton_connection{
   color: #fd2d01;
   margin-top: 15px;
 }
