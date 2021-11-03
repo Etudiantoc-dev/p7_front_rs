@@ -39,11 +39,27 @@ export default {
     switchToLogin: function() {
       this.mode = "login";
     },
-    createAccount: function() {
-      console.log(this.nom, this.prenom, this.email, this.password);
-    },
+    createAccount() {
+    const formulaireInscription = {
+      nom: this.nom,
+      prenom: this.prenom,
+      email: this.email,
+      password: this.password,
+    };
+    
+      const user = {
+        method: "POST",
+        body: JSON.stringify(formulaireInscription),
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+      };
+
+      fetch(`http://localhost:3000/api/auth/signup`, user)
+        .then((res) => res.json())
+        .then((res) => console.log(res));
+    }
   },
 };
+
 </script>
 <template>
   <div id="app">

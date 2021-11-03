@@ -33,7 +33,7 @@ export default {
       createAccount: "createAccount",
     }),
   },
-  // methods: {
+  methods: {
 
   signup() {
     const formulaireInscription = {
@@ -42,7 +42,7 @@ export default {
       email: this.email,
       password: this.password,
     };
-    {
+    
       const user = {
         method: "POST",
         body: JSON.stringify(formulaireInscription),
