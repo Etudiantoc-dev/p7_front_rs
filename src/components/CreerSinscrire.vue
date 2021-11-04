@@ -32,17 +32,15 @@ export default {
         }
       }
     },
-
-  
   },
 
   methods: {
-     checkForm: function (e) {
-       this.errors = [];
-    if (!this.email) {
-        this.errors.push('Email required.');
+    checkForm: function(e) {
+      this.errors = [];
+      if (!this.email) {
+        this.errors.push("Email required.");
       } else if (!this.validEmail(this.email)) {
-        this.errors.push('Valid email required.');
+        this.errors.push("Valid email required.");
       }
 
       if (!this.errors.length) {
@@ -51,12 +49,11 @@ export default {
 
       e.preventDefault();
     },
-    validEmail: function (email) {
+    validEmail: function(email) {
       var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(email);
     },
-  
-    
+
     switchToCreateAccount: function() {
       this.mode = "create";
     },
@@ -64,12 +61,12 @@ export default {
       this.mode = "login";
     },
     createAccount() {
-    const formulaireInscription = {
-      nom: this.nom,
-      prenom: this.prenom,
-      email: this.email,
-      password: this.password,
-    };
+      const formulaireInscription = {
+        nom: this.nom,
+        prenom: this.prenom,
+        email: this.email,
+        password: this.password,
+      };
 
       const user = {
         method: "POST",
@@ -80,13 +77,12 @@ export default {
       fetch(`http://localhost:3000/api/auth/signup`, user)
         .then((res) => res.json())
         .then((res) => console.log(res));
-
     },
-    login(){
-         const connection = {
-      email: this.email,
-      password: this.password,
-    };
+    login() {
+      const connection = {
+        email: this.email,
+        password: this.password,
+      };
 
       const user = {
         method: "POST",
@@ -97,10 +93,9 @@ export default {
       fetch(`http://localhost:3000/api/auth/signup`, user)
         .then((res) => res.json())
         .then((res) => console.log(res));
-
-    }
-  }}
-
+    },
+  },
+};
 </script>
 <template>
   <div id="app">
@@ -125,8 +120,8 @@ export default {
           </p>
         </div>
 
-        <form @submit="checkForm" action="/something" method="post" novalidate="true">
-  
+        <form @submit="checkForm" novalidate="true">
+          <!--action="/something" method="post" DANS L'EXEMPLE FORMVUE SUR LE SITE??-->
 
           <div class="form_group" v-if="mode == 'create'">
             <label for="item.nom">Nom</label>
@@ -151,8 +146,7 @@ export default {
               placeholder="Prénom"
             />
           </div>
-          <div
-            class="form_group">
+          <div class="form_group">
             <label for="item.prenom">Email</label>
             <input
               v-model="email"
@@ -161,14 +155,13 @@ export default {
               id="email"
               name="email"
               placeholder="Email"
-            />  <small v-if="errors.length">
-    <b>Veuillez entrer une adresse valide</b>
-    <ul>
-      <li class="style" v-bind="error in errors">{{ error }}</li>
-    </ul>
-  </small>
-
-
+            />
+            <small v-if="errors.length">
+              <b>Veuillez entrer une adresse valide</b>
+              <ul>
+                <li class="style" v-bind="error in errors">{{ error }}</li>
+              </ul>
+            </small>
           </div>
           <div class="form_group">
             <label for="item.password">Mot de passe</label>
@@ -257,10 +250,10 @@ label {
 .validEmail {
   background: #fd2d01;
 }
-.style{
+.style {
   list-style: none;
 }
-b{
+b {
   color: #fd2d01;
 }
 /* Responsive */
