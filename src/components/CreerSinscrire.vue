@@ -61,7 +61,7 @@ export default {
       this.mode = "login";
     },
     createAccount() {
-      const formulaireInscription = {
+      const formInscription = {
         nom: this.nom,
         prenom: this.prenom,
         email: this.email,
@@ -70,7 +70,7 @@ export default {
 
       const user = {
         method: "POST",
-        body: JSON.stringify(formulaireInscription),
+        body: JSON.stringify(formInscription),
         headers: { "Content-type": "application/json; charset=UTF-8" },
       };
 
@@ -79,18 +79,19 @@ export default {
         .then((res) => console.log(res));
     },
     login() {
-      const connection = {
+      const formconnection = {
         email: this.email,
         password: this.password,
       };
 
       const user = {
         method: "POST",
-        body: JSON.stringify(connection),
+        body: JSON.stringify(formconnection),
         headers: { "Content-type": "application/json; charset=UTF-8" },
       };
 
-      fetch(`http://localhost:3000/api/auth/signup`, user)
+      fetch(`http://localhost:3000/api/auth/login`, user)
+      console.log(fetch)
         .then((res) => res.json())
         .then((res) => console.log(res));
     },
