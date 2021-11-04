@@ -1,5 +1,3 @@
-   
-
 <template>
   <header>
     <img class="logo_header" :src="image.source" :alt="image.alt" />
@@ -7,13 +5,6 @@
     <h1>Réseau social des employé(e)s</h1>
 
     <ul>
-      <li><router-link to="./Signup">
-        <a href="inscription">Inscription</a>
-        </router-link>
-      </li>
-      <li>
-        <router-link to="/"> <a href="connexion">Connexion</a></router-link>
-      </li>
       <li>
         <router-link to="/PublicationForum">
           <a href="Forum">Forum</a>
@@ -22,8 +13,8 @@
     </ul>
   </header>
 </template>
-  
-   <script>
+
+<script>
 export default {
   name: "Header",
   props: {
@@ -94,7 +85,3 @@ li {
   }
 }
 </style>
-
-
-
-
