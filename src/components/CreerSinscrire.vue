@@ -85,13 +85,15 @@ export default {
       };
 
       const user = {
+        
         method: "POST",
         body: JSON.stringify(formconnection),
         headers: { "Content-type": "application/json; charset=UTF-8" },
       };
+      
 
       fetch(`http://localhost:3000/api/auth/login`, user)
-      console.log(fetch)
+      
         .then((res) => res.json())
         .then((res) => console.log(res));
     },
