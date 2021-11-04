@@ -10,6 +10,11 @@
           <a href="Forum">Forum</a>
         </router-link>
       </li>
+         <li>
+        <router-link to="/AccueilUtilisateur">
+          <a href="Accueil">Accueil</a>
+        </router-link>
+      </li>
     </ul>
   </header>
 </template>

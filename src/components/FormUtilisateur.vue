@@ -98,115 +98,110 @@ export default {
 };
 </script>
 <template>
-  <div id="app">
     <section>
-      <aside>
-        <div class="connex" v-if="mode == 'login'">
-          <h2>Connexion</h2>
-        </div>
-        <div class="connex" v-else>
-          <h2>Inscription</h2>
-        </div>
-        <div class="connex" v-if="mode == 'login'">
-          <p>
-            Tu n'as pas encore de compte ?
-            <button @click="switchToCreateAccount()">Créer un compte</button>
-          </p>
-        </div>
-        <div class="connex" v-else>
-          <p>
-            Tu as déjà un compte ?
-            <button class="ligne" @click="switchToLogin()">Se connecter</button>
-          </p>
-        </div>
+      <div class="connex" v-if="mode == 'login'">
+        <h2>Connexion</h2>
+      </div>
+      <div class="connex" v-else>
+        <h2>Inscription</h2>
+      </div>
+      <div class="connex" v-if="mode == 'login'">
+        <p>
+          Tu n'as pas encore de compte ?
+          <button @click="switchToCreateAccount()">Créer un compte</button>
+        </p>
+      </div>
+      <div class="connex" v-else>
+        <p>
+          Tu as déjà un compte ?
+          <button class="ligne" @click="switchToLogin()">Se connecter</button>
+        </p>
+      </div>
 
-        <form @submit="checkForm" novalidate="true">
-          <!--action="/something" method="post" DANS L'EXEMPLE FORMVUE SUR LE SITE??-->
+      <form @submit="checkForm" novalidate="true">
+        <!--action="/something" method="post" DANS L'EXEMPLE FORMVUE SUR LE SITE??-->
 
-          <div class="form_group" v-if="mode == 'create'">
-            <label for="item.nom">Nom</label>
-            <input
-              v-model="nom"
-              class="form-control"
-              type="text"
-              id="nom"
-              name="nom"
-              placeholder="Nom"
-              kei="item.name"
-            />
-          </div>
-          <div class="form_group" v-if="mode == 'create'">
-            <label for="item.prenom">Prénom</label>
-            <input
-              v-model="prenom"
-              type="text"
-              class="form-control"
-              id="prenom"
-              name="prenom"
-              placeholder="Prénom"
-            />
-          </div>
-          <div class="form_group">
-            <label for="item.prenom">Email</label>
-            <input
-              v-model="email"
-              type="email"
-              class="form-control"
-              id="email"
-              name="email"
-              placeholder="Email"
-            />
-            <small v-if="errors.length">
-              <b>Veuillez entrer une adresse valide</b>
-              <ul>
-                <li class="style" v-bind="error in errors">{{ error }}</li>
-              </ul>
-            </small>
-          </div>
-          <div class="form_group">
-            <label for="item.password">Mot de passe</label>
-            <input
-              v-model="password"
-              type="text"
-              class="form-control"
-              id="password"
-              name="password"
-              placeholder="Mot de passe"
-            />
-          </div>
-          <div
-            class="form_group"
-            @click="createAccount()"
-            :class="{ button_disabled: !validatedFields }"
-            v-if="mode == 'create'"
-          >
-            <input
-              type="submit"
-              value="Inscription"
-              class="bouton_inscription"
-              id="bouton"
-            />
-            <p id="erreur" style="color: orangered; width: max-content"></p>
-          </div>
-          <div
-            class="form_group"
-            @click="login()"
-            :class="{ button_disabled: !validatedFields }"
-            v-else
-          >
-            <input
-              type="submit"
-              value="Connection"
-              class="bouton_connection"
-              id="bouton"
-            />
-            <p id="erreur" style="color: orangered; width: max-content"></p>
-          </div>
-        </form>
-      </aside>
+        <div class="form_group" v-if="mode == 'create'">
+          <label for="item.nom">Nom</label>
+          <input
+            v-model="nom"
+            class="form-control"
+            type="text"
+            id="nom"
+            name="nom"
+            placeholder="Nom"
+            kei="item.name"
+          />
+        </div>
+        <div class="form_group" v-if="mode == 'create'">
+          <label for="item.prenom">Prénom</label>
+          <input
+            v-model="prenom"
+            type="text"
+            class="form-control"
+            id="prenom"
+            name="prenom"
+            placeholder="Prénom"
+          />
+        </div>
+        <div class="form_group">
+          <label for="item.prenom">Email</label>
+          <input
+            v-model="email"
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Email"
+          />
+          <small v-if="errors.length">
+            <b>Veuillez entrer une adresse valide</b>
+            <ul>
+              <li class="style" v-bind="error in errors">{{ error }}</li>
+            </ul>
+          </small>
+        </div>
+        <div class="form_group">
+          <label for="item.password">Mot de passe</label>
+          <input
+            v-model="password"
+            type="text"
+            class="form-control"
+            id="password"
+            name="password"
+            placeholder="Mot de passe"
+          />
+        </div>
+        <div
+          class="form_group"
+          @click="createAccount()"
+          :class="{ button_disabled: !validatedFields }"
+          v-if="mode == 'create'"
+        >
+          <input
+            type="submit"
+            value="Inscription"
+            class="bouton_inscription"
+            id="bouton"
+          />
+          <p id="erreur" style="color: orangered; width: max-content"></p>
+        </div>
+        <div
+          class="form_group"
+          @click="login()"
+          :class="{ button_disabled: !validatedFields }"
+          v-else
+        >
+          <input
+            type="submit"
+            value="Connection"
+            class="bouton_connection"
+            id="bouton"
+          />
+          <p id="erreur" style="color: orangered; width: max-content"></p>
+        </div>
+      </form>
     </section>
-    <Footer />
-  </div>
 </template>
 <style lang="css">
 body {

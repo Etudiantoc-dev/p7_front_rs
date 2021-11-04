@@ -7,10 +7,10 @@
 <script>
 import FormUtilisateur from "../components/FormUtilisateur.vue";
 
-import { mapState, mapGetters} from "vuex";
+import { mapState } from "vuex";
 
 export default {
-  name: "Accueil",
+  name: "AccueilUtilisateur",
   components: {
     FormUtilisateur,
   },
@@ -18,9 +18,7 @@ export default {
     ...mapState({
       logo: "logo",
     }),
-    ...mapGetters({
-      validatedFields:'validatedFields'
-    })
+ 
   },
 };
 </script>

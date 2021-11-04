@@ -7,7 +7,6 @@ export default {
   components: {
     FormPublication
   },
-
 }
 </script>
 <template> 
