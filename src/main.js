@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import CreerSinscrire from '../src/components/CreerSinscrire'
+import App from '/'
 import router from './router'
 import store from './store'
 
@@ -8,5 +8,5 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
-  render: h => h(CreerSinscrire )
+  render: h => h(App)
 }).$mount('#app')

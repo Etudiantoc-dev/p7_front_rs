@@ -3,7 +3,9 @@
     <div id="nav">
       <Header :image="logo" />
     </div>
-<section></section>
+<section>
+  <FormUtilisateur/>
+</section>
     <router-view />
     <Footer />
   </div>
@@ -11,12 +13,14 @@
 <script>
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
+import FormUtilisateur from "./components/FormUtilisateur.vue"
 import { mapState } from "vuex";
 
 export default {
   name: "App",
   components: {
     Header,
+    FormUtilisateur,
     Footer,
   },
 
