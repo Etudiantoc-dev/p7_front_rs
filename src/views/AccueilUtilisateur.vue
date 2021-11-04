@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <section>
     <FormUtilisateur />
-  </div>
+  </section>
 </template>
 
 <script>

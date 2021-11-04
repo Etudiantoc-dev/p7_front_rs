@@ -1,3 +1,37 @@
+<script>
+export default{
+  name: "formulairePublication",
+  data:function(){
+    return{
+      prenom:'',
+      commentaire:'',
+      multimedia:'',
+
+    }
+
+  },
+ methods: {
+   createdPublication() {
+      const formulairePublication = {
+        prenom: this.prenom,
+        commentaire: this.commentaire,
+        multimedia: this.multimedia,
+      };
+      {
+        const userPublication = {
+          method: "POST",
+          body: JSON.stringify(formulairePublication),
+          headers: { "Content-type": "application/json; charset=UTF-8" },
+        };
+
+        fetch(`http://localhost:3000/api/publication`, userPublication)
+          .then((res) => res.json())
+          .then((res) => console.log(res));
+      }
+    },
+  },
+};
+</script>
 <template>
   <section>
     <form>
