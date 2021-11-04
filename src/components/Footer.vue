@@ -26,12 +26,12 @@ export default {
     };
   },
 
-  // computed: {
-  //   copyright() {
-  //     const currentYear = new Date().getFullYear();
+  computed: {
+    copyright() {
+      const currentYear = new Date().getFullYear();
 
-  //     return `Copyright ${this.msg} ${currentYear}`;
-  //   },
-  // },
+      return `Copyright ${this.msg} ${currentYear}`;
+    },
+  },
 };
 </script>
