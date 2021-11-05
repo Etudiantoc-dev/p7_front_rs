@@ -3,8 +3,7 @@
     <div id="nav">
       <Header :image="logo" />
     </div>
-<section>
-  </section>
+    <section></section>
     <router-view />
     <Footer />
   </div>
@@ -13,14 +12,12 @@
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 
-
 import { mapState } from "vuex";
 
 export default {
   name: "App",
   components: {
     Header,
-  
     Footer,
   },
 

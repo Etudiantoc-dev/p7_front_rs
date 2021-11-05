@@ -1,17 +1,15 @@
 <script>
-export default{
+export default {
   name: "formulairePublication",
-  data:function(){
-    return{
-      prenom:'',
-      commentaire:'',
-      multimedia:'',
-
-    }
-
+  data: function() {
+    return {
+      prenom: "",
+      commentaire: "",
+      multimedia: "",
+    };
   },
- methods: {
-   createdPublication() {
+  methods: {
+    createdPublication() {
       const formulairePublication = {
         prenom: this.prenom,
         commentaire: this.commentaire,
@@ -35,42 +33,47 @@ export default{
 <template>
   <section>
     <form>
-    <h2>Publication</h2>
-    <div class="form_group">
-      <label for="prenom">Prénom</label>
-      <input
-        type="text"
-        class="form-control"
-        id="prenom"
-        name="prenom"
-        v-model="prenom"
-        placeholder="Prénom"
-      />
-    </div>
-    <div class="form_group">
-      <label for="commentaire">Commentaire</label>
-      <input
-        type="text"
-        class="form-control"
-        id="commentaire"
-        name="commentaire"
-        v-model="commentaire"
-        placeholder="Commentaire"
-      />
-    </div>
-    <div class="form-group">
-      <label for="multimedia">Multimédia</label>
-      <input type="file" value="Télécharger" class="upload_file" id="bouton" />
-    </div>
-    <div class="form_group">
-      <input
-        type="submit"
-        value="Publier"
-        class="bouton_inscription"
-        id="bouton"
-      />
-    </div>
-  </form>
+      <h2>Publication</h2>
+      <div class="form_group">
+        <label for="prenom">Prénom</label>
+        <input
+          type="text"
+          class="form-control"
+          id="prenom"
+          name="prenom"
+          v-model="prenom"
+          placeholder="Prénom"
+        />
+      </div>
+      <div class="form_group">
+        <label for="commentaire">Commentaire</label>
+        <input
+          type="text"
+          class="form-control"
+          id="commentaire"
+          name="commentaire"
+          v-model="commentaire"
+          placeholder="Commentaire"
+        />
+      </div>
+      <div class="form-group">
+        <label for="multimedia">Multimédia</label>
+        <input
+          type="file"
+          value="Télécharger"
+          class="upload_file"
+          id="bouton"
+        />
+      </div>
+      <div class="form_group">
+        <input
+          type="submit"
+          value="Publier"
+          class="bouton_inscription"
+          id="bouton"
+        />
+      </div>
+    </form>
   </section>
 </template>
 <style lang="css">

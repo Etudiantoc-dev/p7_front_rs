@@ -8,16 +8,16 @@ import Publication from '../views/PublicationForum.vue'
 Vue.use(VueRouter)
 
 export default new Router({
-  routes : [
-    
+  routes: [
+
     {
-      path: '/',
+      path: '/AccueilUtilisateur',
       name: ' AccueilUtilisateur',
-      component:  AccueilUtilisateur
+      component: AccueilUtilisateur
     },
     {
       path: '/PublicationForum',
-      name:'forum',
+      name: 'forum',
       component: Publication
     }
 
