@@ -79,6 +79,7 @@ export default {
         .then((res) => console.log(res));
     },
     login() {
+       
       const formconnection = {
         email: this.email,
         password: this.password,
@@ -91,9 +92,12 @@ export default {
       };
 
       fetch(`http://localhost:3000/api/auth/login`, user)
+      
         .then((res) => res.json())
         .then((res) => console.log(res));
+       
     },
+    
   },
 };
 </script>
@@ -188,7 +192,7 @@ export default {
         </div>
         <div
           class="form_group"
-          @click="login()"
+          @click.prevent="login()"
           :class="{ button_disabled: !validatedFields }"
           v-else
         >
