@@ -9,8 +9,10 @@ export default {
       prenom: "",
       nom: "",
       password: "",
+      
     };
   },
+
   computed: {
     validatedFields: function() {
       if (this.mode == "create") {
@@ -35,6 +37,10 @@ export default {
   },
 
   methods: {
+      
+  direction: function(){
+      this.$router.push({ name:'forum'})
+    },
     checkForm: function(e) {
       this.errors = [];
       if (!this.email) {
@@ -49,6 +55,7 @@ export default {
 
       e.preventDefault();
     },
+
     validEmail: function(email) {
       var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       return re.test(email);
@@ -194,12 +201,14 @@ export default {
           <p id="erreur" style="color: orangered; width: max-content"></p>
         </div>
         <div
+        
           class="form_group"
-          @click.prevent="login(checkForm())"
+          @click="login(checkForm() , direction())"
           :class="{ button_disabled: !validatedFields }"
-          v-else
-        >
+          v-else>
           <input
+          
+            name="connection"
             type="submit"
             value="Connection"
             class="bouton_connection"
