@@ -15,10 +15,10 @@ export default {
     validatedFields: function() {
       if (this.mode == "create") {
         if (
-          this.nom != "" &&
-          this.prenom != "" &&
-          this.email != "" &&
-          this.password != ""
+          this.nom != "" ,
+          this.prenom != "" ,
+          this.email != "" ,
+          this.password != "" 
         ) {
           return true;
         } else {
@@ -59,6 +59,9 @@ export default {
     },
     switchToLogin: function() {
       this.mode = "login";
+    },
+    validPassword: function(){
+
     },
     createAccount() {
       const formInscription = {
@@ -178,7 +181,7 @@ export default {
         </div>
         <div
           class="form_group"
-          @click="createAccount()"
+          @click="createAccount(checkForm())"
           :class="{ button_disabled: !validatedFields }"
           v-if="mode == 'create'"
         >
@@ -192,7 +195,7 @@ export default {
         </div>
         <div
           class="form_group"
-          @click.prevent="login()"
+          @click.prevent="login(checkForm())"
           :class="{ button_disabled: !validatedFields }"
           v-else
         >
